@@ -1,9 +1,11 @@
 class Hero:
-  def __init__(self):
-    pass
-    
-  def action(self):
-    pass
+    def __init__(self, name, gender_id, age, feat):
+        self.name = name
+        self.gender_id = gender_id
+        self.age = age
+        self.feat = feat
 
-x = Hero
-x.action
+    def action(self):
+        pass
+
+x1 = Hero
