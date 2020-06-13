@@ -1,138 +1,121 @@
 from time import sleep
 from classes import Hero
 import effects
+import dialog
 
 
 print(f'{effects.red}{effects.framed}{effects.bold} Bem vindo ao The Warpeds... {effects.reset}{effects.yellow}')
 sleep(2)
 
 # 1 - Definindo o nome
-name = str(input('Por favor, digite o seu nome: ').capitalize().strip())
+name = str(input(dialog.name_choice['input']).capitalize().strip())
 sleep(2)
-print(f'Que belo nome, {name}!')
+print(dialog.name_choice['success'].format(name))
 sleep(2)
 
 print('-' * 30)
 # 2 - Definindo o gênero
-print('Sinto muito! Meus processadores foram bastante corroídos em decorrência do GRANDE DIA.')
+print(dialog.gender_choice['intro'])
 print('-' * 30)
 sleep(3)
-gender = str(input('''Não consigo identificar o seu gênero. Poderia definí-lo para mim, por favor? 
-[1] Masculino
-[2] Feminino
-[3] Não definido
-Qual a sua opção? '''))
+gender = str(input(dialog.gender_choice['input']))
 sleep(2)
 
 while gender not in '123':
     print('-' * 30)
-    gender = str(input('''Ops! Acho que esta opção não está no meu banco de dados. 
-    Poderia repetir, por favor?
-    Lembrando: [1] Masculino, [2] Feminino e [3] Não definido.
-    Digite a sua opção: '''))
+    gender = str(input(dialog.gender_choice['invalid_option']))
 sleep(2)
 
 if gender in '1':
     gender_id = 'Masculino'
     print('-' * 30)
-    print('Perfeito! Seu genero foi registrado como Masculino!')
+    print(dialog.gender_choice['success_masculine'])
 elif gender in '2':
     gender_id = 'Feminino'
     print('-' * 30)
-    print('Perfeito! Seu genero foi registrado como Feminino!')
+    print(dialog.gender_choice['success_feminine'])
 else:
     gender_id = 'Indefinido'
     print('-' * 30)
-    print('Bom, gênero é mesmo uma coisa muito complicada, não é mesmo!?')
+    print(dialog.gender_choice['success_undefined'])
 sleep(2)
 
 
 print('-' * 30)
 # 3 - Definindo a idade
-print('Me pergunto se você conseguirá realmente vencer The Warpeds...')
+print(dialog.age_choice['intro_1'])
 sleep(2)
-print('Digo de antemão que esta não é uma jornada muito fácil!')
+print(dialog.age_choice['intro_2'])
 sleep(2)
 print('-' * 30)
-age = int(input('Por favor, digite a sua idade (anos): '))
+age = int(input(dialog.age_choice['input']))
 sleep(2)
 
 while age <= 5 or age >= 60:        # todo colocar dentro de uma função
     if age <= 5:
         print('-' * 30)
-        x = str(input('''Acho que você está muito jovem para uma aventura neste porte.
-        Tem certeza que deseja continuar!? [Y]/[N] '''))
+        x = str(input(dialog.age_choice['too_young']))
         while x not in 'yn':
             print('-' * 30)
-            x = input('Opção inválida! Por favor escolha se você quer[Y] ou não[N] continuar com esta idade: ')
+            x = input(dialog.age_choice['invalid_option'])
         else:
             if x in 'Y':
                 print('-' * 30)
-                print('Bom, não diga que eu não avisei...')
+                print(dialog.age_choice['warning'])
                 sleep(2)
             else:
                 print('-' * 30)
-                age = int(input('Ok então. Por favor re-digite a sua idade (anos): '))
+                age = int(input(dialog.age_choice['re_input']))
                 sleep(2)
 
     elif age >= 60:         # todo colocar dentro de uma função
         print('-' * 30)
-        x = str(input('''Acho que você está muito acima da idade para uma aventura neste porte.
-        Tem certeza que deseja continuar!? [Y]/[N] '''))
+        x = str(input(dialog.age_choice['too_old']))
         while x not in 'yn':
             print('-' * 30)
-            x = input('Opção inválida! Por favor escolha se você quer[Y] ou não[N] continuar com esta idade: ')
+            x = input(dialog.age_choice['invalid_option'])
         else:
             if x in 'y':
                 print('-' * 30)
-                print('Bom, não diga que eu não avisei...')
+                print(dialog.age_choice['warning'])
                 sleep(2)
             else:
                 print('-' * 30)
-                age = int(input('Ok então. Por favor re-digite a sua idade (anos): '))
+                age = int(input(dialog.age_choice['re_input']))
                 sleep(2)
 
 else:
     print('-' * 30)
-    print(f'Anotado! Sua idade é {age} anos!')
-    sleep(2)
-    print('-' * 30)
-    print('Acho que podemos, enfim, definir suas características.')
+    print(dialog.age_choice['success'].format(age))
 sleep(2)
 
 
 print('-' * 30)
 # 4 - Definindo a classe do heroi
-feat = str(input('''Se fosse para você escolher duas vantagens e um defeito? Quais seriam?
-[1] Forte e resistente, mas nada esperto
-[2] Estratégico e acrobático, mas muito frágil
-[3] Inteligente e criativo, mas antissocial
-Digite a sua opção: '''))
+print(dialog.class_choice['intro'])
+print('-' * 30)
+sleep(2)
+feat = str(input(dialog.class_choice['input']))
+sleep(2)
 
 while feat not in '123':
     print('-' * 30)
-    feat = str(input('''Ops! Acho que houve um mal entendido aqui. 
-    Poderia a sua escolha novamente, por favor?
-    Lembrando:
-    [1] Forte e resistente, mas pouco inteligente
-    [2] Perceptível e ágil, mas pouco resistente
-    [3] Inteligente e sortudo, mas pouco carismático
-    Digite a sua opção: '''))
+    feat = str(input(dialog.class_choice['invalid_option']))
 sleep(2)
 
 
 if feat in '1':
     feat_id = 'Psicótico'
     print('-' * 30)
-    print('Bem que eu achei que você tinha uma cara de doido! Sua classe é Psicótico!')
+    print(dialog.class_choice['success_class_1'])
 elif feat in '2':
     feat_id = 'Assassino'
     print('-' * 30)
-    print('É bom que eu seja seu amigo. Detesto ter um Assasino como inimigo!')
+    print('success_class_2')
 else:
     feat_id = 'Neurótico'
     print('-' * 30)
-    print('Não consegue controlar as suas ideias na sua cabeça, não é!? Típico de um Neurótico.')
+    print('success_class_3')
 sleep(3)
 
 
@@ -158,19 +141,17 @@ else:
 print('E aqui vai um resumo do seu personagem!!')
 sleep(5)
 print('-' * 30)
-print(f'''{effects.bold}CARACTERÍSTICAS PRINCIPAIS:{effects.reset}{effects.yellow}
+print(f'''{effects.bold}CARACTERÍSTICAS PRINCIPAIS:{effects.reset}
 - Nome: {hero.name}
 - Gênero: {hero.gender_id}
 - Idade: {hero.age}
 - Classe: {hero.feat_id}
 
-{effects.bold}ATRIBUTOS:{effects.reset}{effects.yellow}
-Força: {hero.strength}
-Percepção: {hero.perception}
-Resistência: {hero.endurance}
-Carisma: {hero.charisma}
-Inteligência: {hero.intelligence}
-Agilidade: {hero.agility}
-Sorte: {hero.luck}''')
-
-
+{effects.bold}ATRIBUTOS:{effects.reset}
+- Força: {hero.strength}
+- Percepção: {hero.perception}
+- Resistência: {hero.endurance}
+- Carisma: {hero.charisma}
+- Inteligência: {hero.intelligence}
+- Agilidade: {hero.agility}
+- Sorte: {hero.luck}''')
