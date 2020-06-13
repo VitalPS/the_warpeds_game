@@ -1,3 +1,6 @@
-from intro import hero
+import intro
 
-print(hero)
+
+print('*-*-*-*-*   O VALE PERDIDO   *-*-*-*-*')
+
+if hero

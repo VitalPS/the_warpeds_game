@@ -14,5 +14,3 @@ class Hero:
         self.agility = 5
         self.luck = 5
 
-
-x1 = Hero
