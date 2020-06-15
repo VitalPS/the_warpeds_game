@@ -1,0 +1,30 @@
+SUICIDA (SUICIDAL)
+    - Forte / Resistente
+    - Baixa inteligencia
+
+    - Contras - Desobediente
+        Decisões contrárias ao player
+
+    - Prós - Regeneração
+        Regenera a vida de tempos em tempos
+
+
+Assassino*
+    - Perceptivel / Ágil
+    - Pouco resistente
+
+    - Contras* -
+
+    - Prós - Atenção
+        Vez ou outra sabe o caminho certo a seguir - opção destacada
+
+
+
+NEURÓTICO (NEUROTIC)
+    - Inteligente / Sortudo
+    - Pouco carismático
+
+    - Contras - Escrisofênico
+        Briga de personalidades - luta contra o tempo
+
+    - Prós* -

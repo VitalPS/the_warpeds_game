@@ -48,6 +48,8 @@ sleep(2)
 print(dialog.age_choice['intro_2'])
 sleep(2)
 print('-' * 30)
+
+
 age = int(input(dialog.age_choice['input']))
 sleep(2)
 
@@ -112,7 +114,7 @@ elif feat in '2':
     feat_id = 'Assassino'
     print('-' * 30)
     print('success_class_2')
-else:
+elif feat in '3':
     feat_id = 'Neurótico'
     print('-' * 30)
     print('success_class_3')
@@ -121,7 +123,7 @@ sleep(3)
 
 print('-' * 30)
 # Criando heroi
-hero = Hero(name, gender_id, age, feat_id)
+hero = Hero(name, gender_id, age, feat, feat_id)
 hero.attributes()
 
 if feat in '1':
@@ -130,9 +132,9 @@ if feat in '1':
     hero.intelligence -= 3
 elif feat in '2':
     hero.perception += 2
-    hero.agility += 2
+    hero.dextery += 2
     hero.endurance -= 3
-else:
+elif feat in '3':
     hero.intelligence += 2
     hero.luck += 2
     hero.charisma -= 3
@@ -153,5 +155,5 @@ print(f'''{effects.bold}CARACTERÍSTICAS PRINCIPAIS:{effects.reset}
 - Resistência: {hero.endurance}
 - Carisma: {hero.charisma}
 - Inteligência: {hero.intelligence}
-- Agilidade: {hero.agility}
+- Agilidade: {hero.dextery}
 - Sorte: {hero.luck}''')
